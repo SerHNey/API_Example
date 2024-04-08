@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  backend:
+    image: ${DOCKER_REGISTRY-}apiexample
+    build:
+      context: .
+      dockerfile: API_Example/Dockerfile
+
+  client:
+    image: client
+    build:
+        context: ./example-client
+        dockerfile: Dockerfile
+
+  proxy:
+    image: nginx:mainline
+
+  postgres:
+    container_name: postgres_container
+    image: postgres
+
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+
