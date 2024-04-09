@@ -1,3 +1,18 @@
+/*using Npgsql;
+
+var connString = "Host=postgres;Username=postgres;Password=changeme;Database=ddp23";
+
+await using var conn = new NpgsqlConnection(connString);
+await conn.OpenAsync();
+
+await using (var cmd = new NpgsqlCommand("INSERT INTO public.message(sqehg) VALUES (@p)", conn))
+{
+    cmd.Parameters.AddWithValue("p", "wastc");
+    await cmd.ExecuteNonQueryAsync();
+}
+*/
+
+using Newtonsoft.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +25,10 @@ builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
                 {
                     build.WithOrigins("http://localhost:5001").AllowAnyMethod().AllowAnyHeader();
                 }));
+
+builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+options.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+    .AddNewtonsoftJson(options =>options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
 builder.Services.AddSwaggerGen();
 

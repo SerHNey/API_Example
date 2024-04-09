@@ -24,28 +24,12 @@ class App extends Component {
     })
   }
 
-  getUsers1 = async () => {
-    var response = await fetch(
-      "api/users1",
-      {
-        method: 'get'
-      }
-    )
-
-    var responsejson = await response.json();
-    this.setState({
-      users: responsejson
-    })
-  }
-
   render() {
-    const users = this.state.users.map((item, index) => <li key={index}>{item.name}</li>)
+    const users = this.state.users.map((item, index) => <li key={index}>{item.sqehg}</li>)
 
     return (
       <div className='App'>
-        <button onClick={this.getUsers}>Загрузить список пользователей</button>
-        <ul>{users}</ul>
-        <button onClick={this.getUsers1}>Загрузить список пользователей1</button>
+        <button onClick={this.getUsers}>Загрузить список пользователей2</button>
         <ul>{users}</ul>
       </div>
     );
