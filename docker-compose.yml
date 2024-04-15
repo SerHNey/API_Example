@@ -10,7 +10,7 @@ services:
   client:
     image: client
     build:
-        context: ./macexample-client
+        context: ./example-client
         dockerfile: Dockerfile
 
   proxy:
