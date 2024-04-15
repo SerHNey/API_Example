@@ -25,3 +25,23 @@ services:
     container_name: pgadmin_container
     image: dpage/pgadmin4
 
+  prometheus:
+    image: prom/prometheus
+
+  node-exporter:
+    image: prom/node-exporter
+
+  grafana:
+    image: grafana/grafana
+
+
+
+
+
+
+
+
+
+
+
+
