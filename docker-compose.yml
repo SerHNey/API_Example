@@ -33,6 +33,14 @@ services:
 
   grafana:
     image: grafana/grafana
+  
+  postgres_exporter:
+    container_name: exporter_container
+    image: prometheuscommunity/postgres-exporter:v0.10.1
+
+
+
+
 
 
 

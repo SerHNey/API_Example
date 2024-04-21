@@ -3,6 +3,7 @@ scrape_configs:
   scrape_interval: 5s
   static_configs:
     - targets: ['node-exporter:9100']
+    - targets: ['postgres_exporter:9187']
 
 # для добавления новой задачи (job) по сбору метрик создайте новый элемент
 - job_name: some_name_here
@@ -11,3 +12,10 @@ scrape_configs:
     - targets:
         - target1:9100
         - targetN:9100 # в рамках одной задачи (job) можно собирать метрики с разных узлов. Иногда это бывает полезно для построения дашбордов;
+
+- job_name: postgre_node
+  scrape_interval: 5s
+  static_configs:
+    - targets:
+        - target1:9187
+        - targetN:9187 # в рамках одной задачи (job) можно собирать метрики с разных узлов. Иногда это бывает полезно для построения дашбордов;
