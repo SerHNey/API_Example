@@ -16,10 +16,10 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
     async def on_after_register(self, user: User, request: Optional[Request] = None):
         print(f"User {user.id} has registered.")
 
- #   async def on_after_forgot_password(
- #       self, user: User, token: str, request: Optional[Request] = None
- #   ):
- #       print(f"User {user.id} has forgot their password. Reset token: {token}")
+    #   async def on_after_forgot_password(
+    #       self, user: User, token: str, request: Optional[Request] = None
+    #   ):
+    #       print(f"User {user.id} has forgot their password. Reset token: {token}")
 
     async def create(
             self,
@@ -47,6 +47,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
         await self.on_after_register(created_user, request)
 
         return created_user
+
 
 # Подтверждение по почте.
 #    async def on_after_request_verify(
