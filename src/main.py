@@ -7,6 +7,8 @@ from src.auth.models import User
 from src.auth.manager import get_user_manager
 from src.auth.schemas import UserRead, UserCreate
 
+from src.operations.router import router as router_operation
+
 app = FastAPI(
     title="App"
 )
@@ -27,6 +29,8 @@ app.include_router(
     prefix="/auth",
     tags=["auth"],
 )
+
+app.include_router(router_operation)
 
 
 @app.get("/protected-route")
