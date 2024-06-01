@@ -30,4 +30,11 @@
 
 5296  uvicorn src.main:app --reload
 
-python -m pip install 'fastapi-users[sqlalchemy]'   
+python -m pip install 'fastapi-users[sqlalchemy]'
+
+ 5374  alembic upgrade 0af2d67d9b6c
+
+ 5375  pip install fastapi_cache2[redis]
+
+ 5376  pip install 'fastapi_cache2[redis]'
+
